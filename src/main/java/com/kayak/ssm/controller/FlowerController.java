@@ -44,19 +44,20 @@ public class FlowerController {
 
     //分页条件查询
     @RequestMapping(value = {"/queryByCName"})
+    @ResponseBody
     public Map<String, Object> queryByCName(
             @RequestParam(defaultValue = "1") int page,
-            String cname,
-            Model model) {
+            String cname) {
         //开启分页
         PageHelper.startPage(page, pageNum);
         List<Map<String, String>> list = flowerService.queryByCName(cname);
         PageInfo<Map<String, String>> mapPageInfo = new PageInfo<>(list);
         List<Category> list1 = categoryService.queryAll();
-        model.addAttribute("result", mapPageInfo.getList());
-        model.addAttribute("lastPage", mapPageInfo.getLastPage());
-        model.addAttribute("cnames", list1);
-        return model.asMap();
+        Map<String, Object> map=new HashMap<>();
+        map.put("result", mapPageInfo.getList());
+        map.put("lastPage", mapPageInfo.getLastPage());
+        map.put("cnames", list1);
+        return map;
     }
 
     @RequestMapping("/updateFlower")

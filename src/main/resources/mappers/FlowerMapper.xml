@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kayak.ssm.mapper.FlowerMapper">
+    <sql id="flowerId">
+        fid,fname,price,cid
+    </sql>
+    <sql id="CategoryId">
+        cid, cname
+    </sql>
+    <select id="queryByCName" resultType="map">
+        select f.*,c.cname from t_category c ,t_flower f where c.cid=f.cid
+        <if test="cname !=null and cname != ''">
+            and c.cname like '%' #{cname} '%'
+        </if>
+    </select>
+</mapper>

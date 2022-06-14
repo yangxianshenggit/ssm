@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--扫描包：管理bean-->
+    <context:component-scan base-package="com.kayak.ssm"/>
+    <!--引入springMVC配置-->
+    <import resource="spring-mvc.xml"/>
+
+    <!--mvc处理器映射器、处理器控制器、json解析器-->
+    <!--mvc静态资源-->
+    <!--mvc视图解析器-->
+    <!--文件上传-->
+
+    <!--事务管理器-->
+    <!--aop:切面-->
+    <!--事务传播特性-->
+
+    <!--引入db.properties-->
+    <!--数据源：dbcp数据库连接池-->
+    <!--sqlSessionFactory:扫描包、起别名、-->
+    <!--扫描mapper接口生成子类-->
+
+</beans>
